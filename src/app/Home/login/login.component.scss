@@ -1,0 +1,94 @@
+.loginform {
+    margin: 240px auto;
+    padding: 50px 30px 30px 30px;
+    max-width: 600px;
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .link-primary {
+    margin-left: 22%;
+  }
+  
+  .btn-danger {
+    padding: 10px;
+    width: 30%;
+  }
+  
+  .img {
+    max-width: 100%;
+  }
+  
+  .form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+  
+  .form-check {
+    width: 100%;
+  }
+  
+  .form-check-label {
+    margin-left: 8px;
+  }
+  
+  .link-primary {
+    margin-left: auto;
+  }
+  
+  .toggle-password-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .loginform {
+      width: 80%;
+      margin: 100px auto;
+      padding: 30px 20px;
+    }
+  
+    .form-group {
+      width: 100%;
+    }
+  
+    .btn-danger {
+      width: 100%;
+    }
+  
+    .link-primary {
+      margin-left: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .loginform {
+      width: 90%;
+      margin: 50px auto;
+      padding: 20px 10px;
+    }
+  
+    .form-group {
+      width: 100%;
+    }
+  
+    .btn-danger {
+      width: 100%;
+    }
+  
+    .link-primary {
+      margin-left: auto;
+    }
+  }
+  
