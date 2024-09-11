@@ -1,48 +1,58 @@
-<ngx-skeleton-loader *ngIf="isLoading" [count]="1"  [theme]="{ height: '200px', width: '100%' }"></ngx-skeleton-loader>
+<div class="container-fluid">
+  <ngx-skeleton-loader *ngIf="isLoading" [count]="1" [theme]="{ height: '200px', width: '100%' }"></ngx-skeleton-loader>
 
-<div class="dashboard" *ngIf="!isLoading">
-  <div class="summary-cards">
-    <div class="card">
-      <div class="card-icon">
-        <i class="fas fa-users"></i>
-      </div>
-      <div class="card-content">
-        <h3>230</h3>
-        <p>Total Number of Users</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-icon">
-        <i class="fas fa-file-alt"></i>
-      </div>
-      <div class="card-content">
-        <h3>35</h3>
-        <p>Total Number of User Posts</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="posts">
-    <div *ngFor="let post of posts; let i = index" [ngClass]="{'bg-white': i % 2 === 0, 'bg-gray': i % 2 === 1}" class="post">
-      <div class="post-header">
-        <img [src]="post.profileImageUrl || defaultImageUrl" alt="Profile Picture" />
-        <div>
-          <h5>{{ post.userName }}</h5>
-          <p>{{ post.time }}</p>
+  <div class="dashboard" *ngIf="!isLoading">
+    <div class="summary-cards">
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="card-content">
+          <h3>230</h3>
+          <p>Total Number of Users</p>
         </div>
       </div>
-      <div class="post-content">
-        <h4>{{ post.title }}</h4>
-        <p>{{ post.content }}</p>
+      <div class="card">
+        <div class="card-icon">
+          <i class="fas fa-file-alt"></i>
+        </div>
+        <div class="card-content">
+          <h3>35</h3>
+          <p>Total Number of User Posts</p>
+        </div>
       </div>
-      <div class="post-actions">
-        <span><i class="fas fa-thumbs-up"></i> Like</span>
-        <span><i class="fas fa-comment"></i> Comment</span>
-      </div>
-      <div class="post-footer">
-        <span>{{ post.likes }} Like</span>
-        <span>{{ post.comments }} comments</span>
-        <span>{{ post.replies }} Reply</span>
+    </div>
+
+    <div class="posts">
+      <div *ngFor="let post of posts; let i = index" class="post">
+        <div class="post-image">
+          <img [src]="post.profileMainUrl || defaultImageUrl" alt="Profile Post" (error)="onImageError($event)" />
+        </div>
+        <div class="post-body">
+          <div class="post-header">
+            <img [src]="post.profileImageUrl || defaultImageUrl" alt="Profile Picture" (error)="onImageError($event)" />
+            <div style="margin-right: 900px;">
+              <h5>{{ post.userName }}</h5>
+              <p>{{ post.time }}</p>
+            </div>
+            <div class="post-options">
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+          </div>
+          <div class="post-content">
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.content }}</p>
+          </div>
+          <div class="post-actions">
+            <span><i class="fas fa-thumbs-up"></i> Like</span>
+            <span><i class="fas fa-comment"></i> Comment</span>
+          </div>
+          <div class="post-footer">
+            <span>{{ post.likes }} Likes</span>
+            <span>{{ post.comments }} comments</span>
+            <span>{{ post.replies }} Reply</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,91 @@
+body {
+  color: #5D5F63;
+  background: #3b9afa8c;
+  font-family: 'Open Sans',sans-serif;
+  padding: 0;
+  margin: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+.sidebar-toggle {
+  margin-left: -240px;
+}
+.sidebar {
+  width: 240px;
+  height: 100%;
+  background: #3b9afa8c;
+  position: absolute;
+  -webkit-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+  z-index: 100;
+  #leftside-navigation {
+    ul, ul ul {
+      margin: -2px 0 0;
+      padding: 0;
+    }
+    ul {
+      li {
+        list-style-type: none;
+        border-bottom: 1px solid rgba(255,255,255,.05);
+        &.active {
+          & > a {
+            color: #17181a;
+          }
+          ul {
+            display: block;
+          }
+        }
+        a {
+          color: #f3f9ff;
+          text-decoration: none;
+          display: block;
+          padding: 18px 0 18px 25px;
+          font-size: 15px;
+          outline: 0;
+          -webkit-transition: all 200ms ease-in;
+          -moz-transition: all 200ms ease-in;
+          -o-transition: all 200ms ease-in;
+          -ms-transition: all 200ms ease-in;
+          transition: all 200ms ease-in;
+          &:hover {
+            color: #0a0a0a;
+            transition: transform 0.5s ease-in-out; 
+            transform: scale(0.9,0.9);
+          }
+          span {
+            display: inline-block;
+          }
+          i {
+            width: 20px;
+            .fa-angle-left, .fa-angle-right {
+              padding-top: 3px;
+            }
+          }
+        }
+      }
+    }
+    ul ul {
+      display: none;
+      li {
+        background: #3b9afa8c;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        border-bottom: none;
+        a {
+          font-size: 15px;
+          padding-top: 13px;
+          padding-bottom: 13px;
+          color: #aeb2b7;
+        } &:hover {
+          color: #0a0a0a;
+          transition: transform 0.5s ease-in-out; 
+          transform: scale(0.9,0.9);
+        }
+      }
+    }
+  }
+}

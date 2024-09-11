@@ -1,28 +1,40 @@
-/* dashboard.component.scss */
-.dashboard {
+.container {
+  max-width: 900px;
+  margin: auto;
   padding: 20px;
 }
 
 .summary-cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-bottom: 20px;
+  margin-top: 11px;
+  flex-wrap: wrap;
 }
 
 .card {
+  height: 86px;
   display: flex;
   align-items: center;
   background-color: #f8f9fa;
-  padding: 20px;
-  border-radius: 5px;
+  border-radius: 18px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 48%;
+  width: 30%;
+  flex-direction: row;
+}
+
+.card:hover {
+  transition: transform 0.3s ease-in-out;
+  transform: scale(0.9);
 }
 
 .card-icon {
-  font-size: 3em;
-  color: #dc3545;
+  font-size: 2em;
+  color: #ebe3e4;
   margin-right: 20px;
+  background-color: rgb(196, 2, 2);
+  padding: 2vh;
+  border-radius: 22%;
 }
 
 .card-content h3 {
@@ -33,6 +45,7 @@
 .card-content p {
   margin: 0;
   color: #6c757d;
+  font-size: 1rem;
 }
 
 .posts {
@@ -41,24 +54,45 @@
   gap: 20px;
 }
 
+.post:nth-child(odd) {
+  background-color: #ffffff; /* White for odd posts */
+}
+
+.post:nth-child(even) {
+  background-color:#dcdedf; /* Grey for even posts */
+}
+
 .post {
+  display: flex;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
+  background-color: #ffffff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  flex-wrap: nowrap;
 }
 
-.bg-white {
-  background-color: #ffffff; /* White background */
+
+
+.post-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
-.bg-gray {
-  background-color: #f0f0f0; /* Light gray background */
+.post-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .post-header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .post-header img {
@@ -66,6 +100,11 @@
   width: 50px;
   height: 50px;
   margin-right: 10px;
+}
+
+.post-options {
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .post-content h4 {
@@ -77,32 +116,67 @@
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  font-size: 0.9rem;
+  color: #007bff;
+  cursor: pointer;
 }
 
 .post-footer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-end;
   margin-top: 10px;
   color: #6c757d;
+  font-size: 0.9rem;
 }
 
-/* Skeleton loader styles */
-.skeleton {
-  background: #ddd;
-  height: 200px; /* Adjust as needed */
-  width: 100%;
-  border-radius: 4px;
-  animation: pulse 1.5s infinite ease-in-out;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+  }
+
+  .post {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .post-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .post-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .post-content h4, .post-content p {
+    text-align: center;
+  }
 }
 
-@keyframes pulse {
-  0% {
-    background-color: #ddd;
+@media (max-width: 576px) {
+  .card {
+    width: 100%;
   }
-  50% {
-    background-color: #eee;
+
+  .post-header img {
+    width: 40px;
+    height: 40px;
   }
-  100% {
-    background-color: #ddd;
+
+  .post-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .summary-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .post-actions {
+    justify-content: center;
   }
 }
