@@ -1,19 +1,11 @@
 .main-layout {
     display: flex;
-    height: 886px; /* Full height */
+    height:800px; /* Full height */
     overflow: hidden; /* Prevent scrolling from going out of bounds */
     position: relative; 
   }
   
-  .sidebar-container { 
-    min-width: 240px; /* Ensure sidebar has a minimum width */
-    background-color: #293949;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    overflow-y: auto; /* Allow sidebar to scroll if content overflows */
-    z-index: 100; /* Ensure sidebar stays above the content */
-  }
+ 
   
   .content-container {
     margin-left: 10.33%; /* 4 columns for the sidebar */

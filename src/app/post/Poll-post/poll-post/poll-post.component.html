@@ -1,0 +1,34 @@
+<div class="container">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Post Date</th>
+        <th>Question</th>
+        <th>Result</th>
+        <th>Total No. of Participants</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let post of paginatedPosts; let i = index" [ngClass]="{ 'even-row': i % 2 === 0, 'odd-row': i % 2 !== 0 }">
+        <td>{{ post.date }}</td>
+        <td>{{ post.question }}</td>
+        <td>
+          <div *ngFor="let answer of post.results">
+            <div class="answer">{{ answer.text }} </div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" [style.width.%]="answer.percentage"><span>{{ answer.percentage }}%</span></div>
+            </div>
+          </div>
+        </td>
+        <td>{{ post.participants }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Pagination Controls -->
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{currentPage}} of {{totalPages}}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+</div>

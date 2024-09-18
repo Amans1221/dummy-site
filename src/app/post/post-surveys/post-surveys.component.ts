@@ -3,11 +3,11 @@ import { Component } from '@angular/core';
 declare var bootstrap: any;
 
 @Component({
-  selector: 'app-draft-post',
-  templateUrl: './draft-post.component.html',
-  styleUrl: './draft-post.component.scss'
+  selector: 'app-post-surveys',
+  templateUrl: './post-surveys.component.html',
+  styleUrl: './post-surveys.component.scss'
 })
-export class DraftPostComponent {
+export class PostSurveysComponent {
 
   items = Array.from({ length: 50 }, (_, i) => `Item ${i + 1}`);
   itemsPerPage = 10;

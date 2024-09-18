@@ -1,0 +1,56 @@
+.container {
+    margin-top: 20px;
+  }
+  
+  .table-hover {
+    margin-top: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  th {
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  td {
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  input.form-control {
+    padding-left: 2.5rem;
+  }
+  
+  .bi-search {
+    font-size: 1.25rem;
+  }
+  
+  .pagination .btn-group .btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+  }
+  
+  .btn-outline-secondary {
+    padding: 10px 20px;
+  }
+  
+  .btn-light {
+    padding: 10px 15px;
+    font-size: 1rem;
+  }
+  

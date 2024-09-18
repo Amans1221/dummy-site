@@ -1,0 +1,80 @@
+.container {
+  padding: 16px;
+  background-color: #f8f9fa; /* Light container background */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table thead th {
+  font-weight: bold;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-gray {
+  background-color: #f1f1f1; /* Light gray color */
+}
+
+.answer {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.progress {
+  height: 16px;
+  background-color: #e9ecef;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  background-color: red;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pagination button[disabled] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 16px;
+}
+/* post-results.component.css */
+.even-row {
+  background-color: #f8f8f8; /* Light grey for even rows */
+}
+
+.odd-row {
+  background-color: #ffffff; /* White for odd rows */
+}

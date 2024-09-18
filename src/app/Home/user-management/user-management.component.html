@@ -1,0 +1,96 @@
+<div class="container">
+    <!-- Header with search and buttons -->
+    <div class="row my-3 align-items-center">
+      <div class="col-md-8 position-relative">
+        <input type="text" class="form-control rounded-pill ps-4" placeholder="Search..." [(ngModel)]="searchText" (input)="filterUsers()">
+        <i class="fa fa-search position-absolute top-50 end-0 translate-middle-y me-3"></i>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-outline-danger btn-block rounded-pill">Invitation Status</button>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-danger btn-block rounded-pill d-flex justify-content-between align-items-center">
+          Invite
+          <i class="fa fa-plus-circle" style="margin-left: 10px;"></i>
+        </button>
+      </div>
+    </div>
+  
+    <!-- User table -->
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email Address</th>
+          <th>Sign-Up Date</th>
+          <th>Remove User</th>
+          <th>Block</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.signUpDate }}</td>
+          <td>
+            <button class="btn btn-light border-0 text-danger" (click)="openDeleteModal(user)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+          <td>
+            <button class="btn btn-outline-danger rounded-pill" (click)="openBlockModal(user)">
+              {{ user.isBlocked ? 'Unblock' : 'Block' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Pagination -->
+    <div class="d-flex justify-content-center my-4">
+      <button class="btn btn-outline-secondary mx-2" (click)="previousPage()">Previous</button>
+      <div class="btn-group">
+        <button *ngFor="let page of [1, 2, 3, 4, 5]" class="btn btn-light rounded-circle">{{ page }}</button>
+      </div>
+      <button class="btn btn-outline-secondary mx-2" (click)="nextPage()">Next</button>
+    </div>
+  
+    <!-- Delete Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete <strong>{{ selectedUser?.name }}</strong>?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" (click)="deleteUser()">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Block/Unblock Confirmation Modal -->
+    <div class="modal fade" id="blockModal" tabindex="-1" aria-labelledby="blockModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="blockModalLabel">{{ selectedUser?.isBlocked ? 'Unblock' : 'Block' }} User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to {{ selectedUser?.isBlocked ? 'unblock' : 'block' }} <strong>{{ selectedUser?.name }}</strong>?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button class="btn btn-danger" (click)="selectedUser && toggleBlock(selectedUser)">Yes, {{ selectedUser?.isBlocked ? 'Unblock' : 'Block' }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

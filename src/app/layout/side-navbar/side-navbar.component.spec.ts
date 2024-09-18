@@ -1,23 +1,43 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
 
-import { SideNavbarComponent } from './side-navbar.component';
+@Component({
+  selector: 'app-side-navbar',
+  templateUrl: './side-navbar.component.html',
+  styleUrls: ['./side-navbar.component.scss']
+})
+export class SideNavbarComponent {
+  isSidebarActive: boolean = false;
 
-describe('SideNavbarComponent', () => {
-  let component: SideNavbarComponent;
-  let fixture: ComponentFixture<SideNavbarComponent>;
+  // Define your menuItems array with items and optional subitems
+  menuItems = [
+    {
+      name: 'Dashboard',
+      icon: 'fa fa-dashboard',
+      subItems: ['Overview', 'Analytics', 'Reports']
+    },
+    {
+      name: 'Users',
+      icon: 'fa fa-users',
+      subItems: ['Add User', 'Manage Users', 'User Permissions']
+    },
+    {
+      name: 'Settings',
+      icon: 'fa fa-cog',
+      subItems: ['General Settings', 'Security', 'Notifications']
+    }
+  ];
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [SideNavbarComponent]
-    })
-    .compileComponents();
+  // Toggle the sidebar visibility
+  toggleSidebar() {
+    this.isSidebarActive = !this.isSidebarActive;
+  }
 
-    fixture = TestBed.createComponent(SideNavbarComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  // Toggle the sub-menu visibility
+  toggleMenu(event: any) {
+    const clickedItem = event.currentTarget.parentNode;
+    const subMenu = clickedItem.querySelector('ul');
+    if (subMenu) {
+      subMenu.classList.toggle('active');
+    }
+  }
+}

@@ -1,0 +1,80 @@
+<div class="container">
+    <!-- Left Section for Video, PDF, Playlist Tabs -->
+    <div class="content-left">
+      <div class="tabs">
+        <button [class.active]="selectedTab === 'video'" (click)="selectTab('video')">Video</button>
+        <button [class.active]="selectedTab === 'pdf'" (click)="selectTab('pdf')">PDF</button>
+        <button [class.active]="selectedTab === 'playlist'" (click)="selectTab('playlist')">Playlist</button>
+      </div>
+      
+      <div class="item-list">
+        <div class="item" *ngFor="let item of currentItems">
+          <div class="item-thumbnail">
+            <img [src]="item.thumbnail" alt="Item Thumbnail">
+          </div>
+          <div class="item-info">
+            <h4>{{ item.title }}</h4>
+            <p>{{ item.description }}</p>
+            <div class="item-meta">
+              <span>{{ item.views }} views</span>
+              <span>{{ item.date }}</span>
+            </div>
+          </div>
+          <div class="item-actions">
+            <button class="btn btn-primary">
+              <i class="icon-share fa fa-share"></i>
+            </button>
+            <button class="btn btn-danger">
+              <i class="icon-delete fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Right Section for Upload or Create Playlist -->
+    <div class="content-right">
+      <button class="btn btn-outline-primary mb-3" *ngIf="selectedTab !== 'playlist'" (click)="openModal()">
+        <i class="icon-upload"></i> Upload File
+      </button>
+      <button class="btn btn-outline-primary mb-3" *ngIf="selectedTab === 'playlist'">
+        <i class="icon-create"></i> Create Playlist
+      </button>
+  
+      <div class="categories">
+        <button class="btn btn-light w-100 mb-2" [class.active]="true">
+          <i class="icon-category"></i> Nutrition
+        </button>
+        <button class="btn btn-light w-100 mb-2">
+          <i class="icon-activity"></i> Physical Activity
+        </button>
+        <button class="btn btn-light w-100 mb-2">
+          <i class="icon-behavior"></i> Stress, Mindfulness, and behavior
+        </button>
+      </div>
+    </div>
+  
+ <!-- Modal for Upload -->
+<div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadModalLabel">Upload File</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="file" (change)="onFileSelected($event)" class="form-control mb-3" />
+          <button class="btn btn-primary" (click)="uploadFile()">Upload</button>
+          <select class="form-select mt-3" [(ngModel)]="selectedOption">
+            <option value="" disabled selected>Select an Option</option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <!-- Add more options here -->
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  
