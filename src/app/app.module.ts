@@ -8,6 +8,8 @@ import { DashboardComponent } from './Home/dashboard/dashboard.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { LayoutModule } from './layout/layout.module';
 import { HomeModule } from './Home/home.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -25,7 +27,7 @@ import { HomeModule } from './Home/home.module';
     BrowserAnimationsModule,
     NgxSkeletonLoaderModule,
     LayoutModule,
-    NgModule  
+    NgbModule  
    
   ],
   providers: [],

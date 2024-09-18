@@ -1,6 +1,5 @@
 
 import { Component } from '@angular/core';
-import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,9 +8,7 @@ import { NgModule } from '@angular/core';
 })
 export class LibraryComponent {
   selectedTab: string = 'video'; // Default tab is Video
-  selectedOption: string = '';
-// Default tab is Video
-constructor(private modalService: NgModule) {}
+
   videos = [
     {
       title: 'Cras eu elit congue, placerat dui.',
@@ -120,13 +117,12 @@ constructor(private modalService: NgModule) {}
       this.currentItems = this.playlists;
     }
   }
- 
-  openModal(content: any) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  openModal() {
+    this.showModal = true;
   }
 
   closeModal() {
-    this.modalService.dismissAll();
+    this.showModal = false;
   }
 
   onFileSelected(event: any) {
